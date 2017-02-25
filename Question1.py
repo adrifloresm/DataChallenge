@@ -4,10 +4,6 @@ import os
 import sys
 import numpy as np
 
-def function(s):
-    return re.sub("[%s]" % re.escape(string.punctuation), '', s.lower())
-
-
 def main():	
 	
 	if len(sys.argv) > 1:
