@@ -14,9 +14,9 @@ Write a Python program that analyzes input from a file and compiles statistics o
 
 Example output:
 
-Total word count: 468
-Unique words: 223
-Sentences: 38
+- Total word count: 468
+- Unique words: 223
+- Sentences: 38
 
 Brownie points will be awarded for the following extras:
 The ability to calculate the average sentence length in words.
