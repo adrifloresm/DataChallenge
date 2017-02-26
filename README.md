@@ -1,6 +1,6 @@
 # DataChallenge
 
-I completed a data challenge for Flock with a 2 hr limit, in this repository you will find my files for this challenge. In this post I will walk your through the challenge.
+I completed a data challenge for Flock with a 2 hr limit, in this repository you will find my files for this challenge. In this post I will walk you through the challenge.
 
 ___
 ## Question 1 
@@ -27,7 +27,7 @@ The ability to accept input from STDIN, or from a file specified on the command 
 This question should be written in Python. 
 
 ___
-My code for this question is found in [here]().
+My code for this question is found in [here](https://github.com/adrifloresm/DataChallenge/blob/Draft/Question1.py).
 
 First to get the total word count and number of unique words: I open the input file and as I loop through the file line by line. As I loop through the lines I split the words and add them to a word list.
 
@@ -43,7 +43,7 @@ After generating a list with *all* the words in the document, we can get the uni
 #Get Unique words form word list        
 	unique_words = set(words)
   ```
- After these we are ready to print the first set of results *Total word count* and *Number of Unique words*. To get the number of these values, we need to get the lenght of our lists `words` and `unique_words`, also to display these values we must convert them to strings to be added to the print command.
+ After these we are ready to print the first set of results *Total word count* and *Number of Unique words*. To get the number of these values, we need to get the length of our lists `words` and `unique_words`, also to display these values we must convert them to strings to be added to the print command.
  
  ```python
  #Print Results    
@@ -53,9 +53,9 @@ After generating a list with *all* the words in the document, we can get the uni
   
   The next step in this question is to get the number of sentences. There is multiple ways to do this, however we can take advantage that we are already looping through the file line by line to help us find the number of sentences. The way we do this is to find the end of a sentence and count how many times that happens in the line. And as we loop through the lines of the file we add the number of sentences per line to a counter.
   
- There are several key components to note when determining the end of a sentence. A sentence can end in more than just a period (.) , it may also end in ! or ? , as well as ".  To account for these different possible sentence terminations, I use the following regular experession: `' *[\.\?!][\'"\)\]]* *'` which states that a sentence may end in .?! and may be followed by one or none of these signs: ' or " ) or ] .  
+ There are several key components to note when determining the end of a sentence. A sentence can end in more than just a period (.) , it may also end in ! or ? , as well as ".  To account for these different possible sentence terminations, I use the following regular expression: `' *[\.\?!][\'"\)\]]* *'` which states that a sentence may end in .?! and may be followed by one or none of these signs: ' or " ) or ] .  
  
- I use the regular expresion module in python `re` to `findall` the elements that match my regular expresion in the line. After this, I count how many of these matching exist and add the count to the `no_sentences` counter.
+ I use the regular expression module in python `re` to `findall` the elements that match my regular expression in the line. After this, I count how many of these matching exist and add the count to the `no_sentences` counter.
 ```python
  			no_sentences+=len(re.findall(r' *[\.\?!][\'"\)\]]* *', line))
 ```
@@ -67,7 +67,7 @@ print('Sentences: '+ str(no_sentences))
 
 With that we have complete the initial points of question 1, now let's get the brownie points.
 
-First to be able to read the inputfile from the command line, I import the [sys](https://docs.python.org/3/library/sys.html) module, which provides access to some variables used or maintained by the interpreter. Specifically we need the command line arguments: `sys.argv` . 
+First to be able to read the input file from the command line, I import the [sys](https://docs.python.org/3/library/sys.html) module, which provides access to some variables used or maintained by the interpreter. Specifically we need the command line arguments: `sys.argv` . 
 
 In the code, I check if a file name was provided in the command line by checking the *length* of `sys.argv` and if a argument was provided this is assigned to the variable `inFile` (Used in the open loop). Note, this can be performed in a more robust way, checking if the argument is in the format we need, but to lack of time I did not do the extra checks. If no argument is provided then we use a default inFile called Test.txt.
 def main():	
@@ -77,7 +77,7 @@ def main():
 	else:
 		inFile = 'Test.txt'
 ```
-Next to calculate the average sentence length in words. I create a list of the sentences in the file by spliting the line everytime the regular expression is found. This time I perform that different from the sentence count before, because I want to actually save the sentence into a list `sentenceList`. 
+Next to calculate the average sentence length in words. I create a list of the sentences in the file by splitting the line every time the regular expression is found. This time I perform that different from the sentence count before, because I want to actually save the sentence into a list `sentenceList`. 
 ```python
 sentenceEnders = re.compile(r' *[\.\?!][\'"\)\]]* *')
 			sentenceList += sentenceEnders.split(line)
@@ -92,7 +92,7 @@ After the list of sentences is generated, I loop through the sentenceList and co
 		wordcounts.append(len(words2))
 	average_wordcount = sum(wordcounts)/len(wordcounts)
 ```
-Next I display the results for Average word count per sentence:
+Next I display the results for average word count per sentence:
 ```python
 print('Avg. Word Count: '+ str(average_wordcount))
 ```
@@ -136,8 +136,9 @@ ___
 Suppose we have 2 tables called Orders and Salesperson shown below:
 
 Sales Person
+
 | ID | Name | Age | Salary |
-| ------------- |:-------------:| -----:|
+| ------------- |:-------------:|:-------------:| -----:|
 | 1 | Abe | 61 | 140000|
 | 2 | Bob | 34 | 44000 |
 | 5 | Chris | 34 | 40000 |
@@ -147,8 +148,9 @@ Sales Person
 
 
 Orders
+
 | Number | order_date | cust_id | salesperson_id | Amount |
-| ------------- |:-------------:| -----:|
+| ------------- |:-------------:|:-------------:|:-------------:|-----:|
 | 10 | 8/2/96 | 4 | 2 | 540 |
 | 20 | 1/30/99 | 4 | 8 | 1800 |
 | 30 | 7/14/95 | 9 | 1 | 460 |
@@ -160,6 +162,7 @@ Orders
 Write a SQL query that retrieves the names of all salespeople that have more than 1 order from the tables above. You can assume that each salesperson only has one ID.
 
 ___
+My code for this question is found [here](https://github.com/adrifloresm/DataChallenge/blob/Draft/Question2.ipynb)
 
 For this question I only had a few minutes left, so I decided to complete it in Python Pandas (I am most familiar with it) to complete it faster. 
 
@@ -193,7 +196,7 @@ Ids=freq.where(freq>1).dropna()
 a=Ids.reset_index()
 ```
 
-Next I loop through the Ids `a['index']` , for each Id I search the Salesperson dataframe ID column that matches the current ID, I obtain the Name from that specific entry and add it to a list names. Note here it is important to perform `dropna()` because when we use the `where` function it returns a boolean mask  with NaN where the condition was not met, also it is important to use `item()` to only return the item of `Salesperson['Name']` and not the pandas object.
+Next I loop through the Ids `a['index']` , for each Id I search the Salesperson dataframe ID column that matches the current ID, I obtain the Name from that specific entry and add it to a list names. Note here it is important to perform `dropna()` because when we use the `where` function it returns a Boolean mask  with NaN where the condition was not met, also it is important to use `item()` to only return the item of `Salesperson['Name']` and not the pandas object.
 ```python
 names=[]
 for i in a['index']:
@@ -208,4 +211,4 @@ Which prints the result for Question 2:
 The names are: ['Dan', 'Bob']
 
 
-
+Flock thanks for this great experience!
