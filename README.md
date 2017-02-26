@@ -185,7 +185,7 @@ df=pd.DataFrame([
         {'Number': 70, 'order_date': 5/6/98,'cust_id': 9, 'Salesperson_id': 7, 'Amount': 150}])
 ```
 
-Next, to obtain all the sale person Ids that have more than 1 sale, I obtain the frequency of each Salesperson_id in the Orders dataframe which I named df (In time crunch I forgot to name it Orders).
+Next, to obtain all the sale person Ids that have more than 1 order, I obtain the frequency of each Salesperson_id in the Orders dataframe which I named df (In time crunch I forgot to name it Orders).
 ```python
 freq=df['Salesperson_id'].value_counts()
 ```
@@ -210,5 +210,4 @@ print('The names are: ' + str(names))
 Which prints the result for Question 2:
 The names are: ['Dan', 'Bob']
 
-
-Flock thanks for this great experience!
+That completed my data challenge. Flock thanks for this great experience!
